@@ -1,0 +1,47 @@
+{% extends 'admintemp.html' %}
+
+{% block content %}
+
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">DataTable with Movie Name and Categories</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Genre</th>
+                  <th>Year</th>
+                  <th>Rating</th>
+                  <th>Discription</th>
+                  <th>Poster</th>
+                  <th>File</th>
+                </tr>
+                </thead>
+                {% for i in viewmovies %}
+                <tr>
+                  <td>{{i.name}}</td>
+                  <td>{{i.genre_id.genrename}}</td>
+                  <td>{{i.year}}</td>
+                  <td> {{i.rating}}</td>
+                  <td>{{i.discription}}</td>
+                  <td><img src="{{i.Poster.url}}"></td>
+                  <td><video controls><source src="{{i.File.url}}"></video></td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div> 
+          </div>  
+        </div>
+    </div>
+    </div>
+</section>
+
+
+{% endblock %}
